@@ -1,0 +1,27 @@
+name: gestion-hotel
+
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: gestion-hotel-oracle
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${ORACLE_PORT:-1521}:1521"
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_SYS_PASSWORD}
+      APP_USER: ${ORACLE_APP_USER}
+      APP_USER_PASSWORD: ${ORACLE_APP_PASSWORD}
+    volumes:
+      - gestion_hotel_oracle_data:/opt/oracle/oradata
+      - ./database:/opt/project/database:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+
+volumes:
+  gestion_hotel_oracle_data:
+    name: gestion_hotel_oracle_data
+

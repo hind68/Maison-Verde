@@ -1,0 +1,43 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.jks
+*.p12
+*.pem
+
+# Java and build outputs
+backend/target/
+backend/build/
+*.class
+
+# Node and frontend outputs
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo
+
+# IDE and operating system files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+~$*
+
+# Logs, coverage and temporary files
+*.log
+coverage/
+.tmp/
+tmp/
+
+# Local raw screenshots (only curated, renamed assets are published)
+docs/screenshots/Screenshot *.png
+
+# Database exports and local tooling
+*.dmp
+*.dump
+*.bak
+.sqlcl/
