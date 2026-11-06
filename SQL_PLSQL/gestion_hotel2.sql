@@ -205,7 +205,7 @@ END;
 -- 4) TRIGGERS MÉTIER
 ------------------------------------------------------------
 
--- 4.1) Chevauchement 
+-- 4.1) Chevauchement
 CREATE OR REPLACE TRIGGER trg_reservation_pas_chevauchement
 FOR INSERT OR UPDATE OF id_chambre, date_deb, date_fin, statut ON Reservation
 COMPOUND TRIGGER
@@ -222,7 +222,7 @@ COMPOUND TRIGGER
 
   BEFORE EACH ROW IS
   BEGIN
-    g_rows(g_rows.COUNT + 1).id_res     := :NEW.id_res;    
+    g_rows(g_rows.COUNT + 1).id_res     := :NEW.id_res;
     g_rows(g_rows.COUNT).id_chambre     := :NEW.id_chambre;
     g_rows(g_rows.COUNT).date_deb       := :NEW.date_deb;
     g_rows(g_rows.COUNT).date_fin       := :NEW.date_fin;
@@ -512,7 +512,7 @@ INSERT INTO TypeChambre(libelle, capacite) VALUES ('Simple', 1);
 INSERT INTO TypeChambre(libelle, capacite) VALUES ('Double', 2);
 INSERT INTO TypeChambre(libelle, capacite) VALUES ('Suite Familiale', 4);
 
--- ID chambre : 101=1, 102=2, 301=3 
+-- ID chambre : 101=1, 102=2, 301=3
 INSERT INTO Chambre(numero, etage, statut, id_type) VALUES ('101', 1, 'libre', 1);
 INSERT INTO Chambre(numero, etage, statut, id_type) VALUES ('102', 1, 'libre', 2);
 INSERT INTO Chambre(numero, etage, statut, id_type) VALUES ('301', 3, 'libre', 3);
@@ -705,8 +705,3 @@ BEGIN
 
 END;
 /
-
-
-
-
-
